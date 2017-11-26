@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Route, BrowserRouter, Link, Redirect, Switch } from 'react-router-dom'
+import { Route, BrowserRouter, Redirect, Switch } from 'react-router-dom'
 import Login from './components/Login'
 import Register from './components/Register'
+import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Dashboard from './components/protected/Dashboard'
-import { logout } from './helpers/auth'
 import { firebaseAuth } from './config/constants'
 import './App.css'
 
@@ -68,30 +68,8 @@ class App extends Component {
     return this.state.loading ? <h1>Loading</h1> : (
       <BrowserRouter>
         <div>
-          <nav>
-            <ul>
-              <li>
-                <Link to='/'>Home</Link>
-              </li>
-              <li>
-                <Link to='/dashboard'>Dashboard</Link>
-              </li>
-              <li>
-                {this.state.authed
-                  ? <span>
-                      Logged in as: {this.state.user.displayName} |
-                      <button
-                        style={{ border: 'none', background: 'transparent' }}
-                        onClick={() => { logout() }}
-                        > Logout</button>
-                    </span>
-                  : <span>
-                      <Link to='/login'>Login</Link>
-                    </span>}
-              </li>
-            </ul>
-          </nav>
-          <div>
+          <Navbar authed={this.state.authed} user={this.state.user}/>
+          <div className='container'>
             <Switch>
               <Route path='/' exact component={Home} />
               <PublicRoute authed={this.state.authed} path='/login' component={Login} />

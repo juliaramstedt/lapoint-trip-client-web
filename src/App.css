@@ -1,1 +1,50 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif; }
 
+.Navbar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #eee;
+  height: 50px; }
+  .Navbar .Navbar__link {
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+    height: 100%; }
+    .Navbar .Navbar__link:hover {
+      background: #ccc;
+      cursor: pointer; }
+    .Navbar .Navbar__link a {
+      text-decoration: none;
+      color: black; }
+  .Navbar .Navbar__link--username {
+    margin-left: auto; }
+    .Navbar .Navbar__link--username:hover {
+      background: #eee;
+      cursor: auto; }
+    .Navbar .Navbar__link--username button:hover {
+      cursor: pointer; }
+
+.container {
+  text-align: center; }
+  .container label {
+    padding: 0 10px; }
+  .container input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin: 5px 0; }
+  .container form button {
+    margin: 10px;
+    padding: 15px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: #eee;
+    border: 1px solid #ddd; }
+    .container form button:hover {
+      cursor: pointer;
+      background: #ddd; }

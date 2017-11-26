@@ -55,8 +55,12 @@ export default class Login extends Component {
           }
           <button type='submit'>Login</button>
         </form>
-        <button onClick={this.handleGoogle}>Sign in with Google</button>
-        <Link to='/register'>Register with e-mail</Link>
+        <div>
+          <button onClick={this.handleGoogle}>Sign in with Google</button>
+        </div>
+        <div>
+          <Link to='/register'>Register with e-mail</Link>
+        </div>
       </div>
     )
   }
