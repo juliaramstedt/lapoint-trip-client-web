@@ -36,7 +36,8 @@ class App extends Component {
 
     this.state = {
       authed: false,
-      loading: true
+      loading: true,
+      user: null
     }
   }
 
@@ -46,6 +47,9 @@ class App extends Component {
         this.setState({
           authed: true,
           loading: false,
+          user: {
+            displayName: user.email
+          }
         })
       } else {
         this.setState({
@@ -74,13 +78,15 @@ class App extends Component {
               </li>
               <li>
                 {this.state.authed
-                  ? <button
-                      style={{ border: 'none', background: 'transparent' }}
-                      onClick={() => { logout() }}
-                      >Logout</button>
+                  ? <span>
+                      Logged in as: {this.state.user.displayName} |
+                      <button
+                        style={{ border: 'none', background: 'transparent' }}
+                        onClick={() => { logout() }}
+                        > Logout</button>
+                    </span>
                   : <span>
-                      <Link to='/login'>Login</Link> |
-                      <Link to='/register'>Register</Link>
+                      <Link to='/login'>Login</Link>
                     </span>}
               </li>
             </ul>

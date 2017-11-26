@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { login, resetPassword } from '../helpers/auth'
+import { Link } from 'react-router-dom'
 
 function setErrorMsg(error) {
   return {
@@ -29,7 +30,7 @@ export default class Login extends Component {
       .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
       .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
   }
-  
+
   render () {
     return (
       <div>
@@ -48,11 +49,14 @@ export default class Login extends Component {
             <div role='alert'>
               <span aria-hidden='true'></span>
               <span>Error:</span>
-              &nbsp;{this.state.loginMessage} <a href='#' onClick={this.resetPassword}>Forgot Password?</a>
+              &nbsp;{this.state.loginMessage}
+              <button onClick={this.resetPassword}>Forgot Password?</button>
             </div>
           }
           <button type='submit'>Login</button>
         </form>
+        <button onClick={this.handleGoogle}>Sign in with Google</button>
+        <Link to='/register'>Register with e-mail</Link>
       </div>
     )
   }

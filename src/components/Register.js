@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { auth } from '../helpers/auth'
+import { auth, googleAuth } from '../helpers/auth'
 
 function setErrorMsg(error) {
   return {
@@ -17,8 +17,12 @@ export default class Register extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault()
-    auth(this.email.value, this.pw.value)
+    auth(this.email.value, this.password.value)
       .catch(e => this.setState(setErrorMsg(e)))
+  }
+
+  handleGoogle = (e) => {
+    googleAuth()
   }
 
   render () {
@@ -32,7 +36,11 @@ export default class Register extends Component {
           </div>
           <div>
             <label>Password</label>
-            <input type='password' placeholder='Password' ref={(pw) => this.pw = pw} />
+            <input
+              type='password'
+              placeholder='Password'
+              ref={(password) => this.password = password}
+            />
           </div>
           {
             this.state.registerError &&
