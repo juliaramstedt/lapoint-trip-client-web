@@ -1,4 +1,4 @@
-import { databaseRef, googleProvider, firebaseAuth } from '../config/constants'
+import { databaseRef, firebaseAuth } from '../config/constants'
 
 export function auth (email, password) {
   return firebaseAuth().createUserWithEmailAndPassword(email, password)
@@ -9,16 +9,8 @@ export function login (email, password) {
   return firebaseAuth().signInWithEmailAndPassword(email, password)
 }
 
-export function googleAuth () {
-  return firebaseAuth().signInWithPopup(googleProvider).then(function (response) {
-    console.log('authentication successful')
-  }).catch(function (error) {
-    console.log('authentication failed', error.code, error.message)
-  })
-}
-
-export function mobileGoogleAuth () {
-  return firebaseAuth().signInWithRedirect(googleProvider).then(function (response) {
+export function externalAuth (provider) {
+  return firebaseAuth().signInWithPopup(provider).then(function (response) {
     console.log('authentication successful')
   }).catch(function (error) {
     console.log('authentication failed', error.code, error.message)

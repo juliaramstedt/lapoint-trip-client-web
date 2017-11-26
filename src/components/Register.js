@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { auth, googleAuth } from '../helpers/auth'
+import { auth } from '../helpers/auth'
 
 function setErrorMsg(error) {
   return {
@@ -19,10 +19,6 @@ export default class Register extends Component {
     e.preventDefault()
     auth(this.email.value, this.password.value)
       .catch(e => this.setState(setErrorMsg(e)))
-  }
-
-  handleGoogle = (e) => {
-    googleAuth()
   }
 
   render () {

@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { login, resetPassword } from '../helpers/auth'
+import { googleProvider, facebookProvider } from '../config/constants'
+import { externalAuth } from '../helpers/auth'
 import { Link } from 'react-router-dom'
 
 function setErrorMsg(error) {
@@ -31,6 +33,14 @@ export default class Login extends Component {
       .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
   }
 
+  handleGoogle = (e) => {
+    externalAuth(googleProvider)
+  }
+
+  handleFacebook = (e) => {
+    externalAuth(facebookProvider)
+  }
+
   render () {
     return (
       <div>
@@ -57,6 +67,9 @@ export default class Login extends Component {
         </form>
         <div>
           <button onClick={this.handleGoogle}>Sign in with Google</button>
+        </div>
+        <div>
+          <button onClick={this.handleFacebook}>Sign in with Facebook</button>
         </div>
         <div>
           <Link to='/register'>Register with e-mail</Link>
