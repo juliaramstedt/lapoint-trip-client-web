@@ -12,6 +12,12 @@ const Navbar = (props) => {
       <div className='Navbar__link'>
         <Link to='/dashboard'>Dashboard</Link>
       </div>
+      <div className='Navbar__link'>
+        <Link to='/feed'>Feed</Link>
+      </div>
+      <div className='Navbar__link'>
+        <Link to='/question'>Questions</Link>
+      </div>
       <div className='Navbar__link Navbar__link--username'>
         {props.authed
           ? <span>

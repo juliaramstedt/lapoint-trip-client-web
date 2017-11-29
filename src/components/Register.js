@@ -15,7 +15,7 @@ export default class Register extends Component {
     }
   }
 
-  handleSubmit = (e) => {
+  handleSubmit (e) {
     e.preventDefault()
     auth(this.email.value, this.password.value)
       .catch(e => this.setState(setErrorMsg(e)))
@@ -28,13 +28,12 @@ export default class Register extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Email</label>
-            <input ref={(email) => this.email = email} placeholder='Email'/>
+            <input ref={(email) => this.email = email} />
           </div>
           <div>
             <label>Password</label>
             <input
               type='password'
-              placeholder='Password'
               ref={(password) => this.password = password}
             />
           </div>

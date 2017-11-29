@@ -5,6 +5,8 @@ import Register from './components/Register'
 import Navbar from './components/Navbar'
 import Home from './components/Home'
 import Dashboard from './components/protected/Dashboard'
+import Feed from './components/protected/Feed'
+import Question from './components/protected/questions/Question'
 import { firebaseAuth } from './config/constants'
 import './App.css'
 
@@ -75,6 +77,8 @@ class App extends Component {
               <PublicRoute authed={this.state.authed} path='/login' component={Login} />
               <PublicRoute authed={this.state.authed} path='/register' component={Register} />
               <PrivateRoute authed={this.state.authed} path='/dashboard' component={Dashboard} />
+              <PrivateRoute authed={this.state.authed} path='/feed' component={Feed} />
+              <PrivateRoute authed={this.state.authed} path='/question' component={Question} />
               <Route render={() => <h3>No Match</h3>} />
             </Switch>
           </div>

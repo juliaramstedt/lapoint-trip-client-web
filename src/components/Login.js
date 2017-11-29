@@ -48,11 +48,11 @@ export default class Login extends Component {
         <form onSubmit={this.handleSubmit}>
           <div>
             <label>Email</label>
-            <input ref={(email) => this.email = email} placeholder='Email'/>
+            <input ref={(email) => this.email = email} />
           </div>
           <div>
             <label>Password</label>
-            <input type='password' placeholder='Password' ref={(password) => this.password = password} />
+            <input type='password' ref={(password) => this.password = password} />
           </div>
           {
             this.state.loginMessage &&
